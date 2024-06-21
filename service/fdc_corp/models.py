@@ -22,6 +22,9 @@ class News(models.Model):
     image = models.ImageField(upload_to="news_images")
     active = models.BooleanField()
 
+    def __str__(self):
+        return f'{self.title} | {self.lang_id.title}'
+
 class Pages(models.Model):
     class Meta:
         verbose_name = 'Page'
@@ -43,7 +46,11 @@ class MainMenu(models.Model):
     lang_id = models.ForeignKey(to=Languages, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     url = models.CharField(max_length=256)
+    position = models.IntegerField()
     active = models.BooleanField()
+
+    def __str__(self):
+        return self.title
 
 class FooterMenu(models.Model):
     class Meta:
@@ -52,4 +59,5 @@ class FooterMenu(models.Model):
     lang_id = models.ForeignKey(to=Languages, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     url = models.CharField(max_length=256)
+    position = models.IntegerField()
     active = models.BooleanField()
