@@ -7,7 +7,7 @@ class LanguagesSerializer(serializers.Serializer):
 class MainMenuSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=200)
     url = serializers.CharField(max_length=200)
-    lang_id = serializers.IntegerField()
+    lang_id_id = serializers.IntegerField()
     position = serializers.IntegerField()
     active = serializers.BooleanField()
 
@@ -20,14 +20,14 @@ class FooterMenuSerializer(serializers.Serializer):
 
 class PagesSerializer(serializers.Serializer):
     page_name = serializers.CharField(max_length=200)
-    description = serializers.TextField()
-    key_works = serializers.TextField()
-    content = serializers.TextField()
+    description = serializers.CharField(max_length=200)
+    key_works = serializers.CharField(max_length=200)
+    content = serializers.CharField(max_length=200)
     active = serializers.BooleanField()
 
 class NewsSerializer(serializers.Serializer):
-    title = serializers.CharField(max_length=200)
-    description = serializers.TextField()
+    title = serializers.CharField(max_length=128)
+    description = serializers.CharField(max_length=200)
     date = serializers.DateTimeField()
-    image = serializers.CharField(max_length=200)
+    image = serializers.CharField(max_length=100)
     active = serializers.BooleanField()
