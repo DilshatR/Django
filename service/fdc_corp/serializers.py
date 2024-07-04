@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 class LanguagesSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
     title = serializers.CharField(max_length=200)
     active = serializers.BooleanField()
 
@@ -28,6 +29,6 @@ class PagesSerializer(serializers.Serializer):
 class NewsSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=128)
     description = serializers.CharField(max_length=200)
-    date = serializers.DateTimeField()
+    date = serializers.DateTimeField(format="%d-%m-%Y")
     image = serializers.CharField(max_length=100)
     active = serializers.BooleanField()
