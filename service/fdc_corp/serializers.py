@@ -32,3 +32,10 @@ class NewsSerializer(serializers.Serializer):
     date = serializers.DateTimeField(format="%d-%m-%Y")
     image = serializers.CharField(max_length=100)
     active = serializers.BooleanField()
+
+class SliderSerializer(serializers.Serializer):
+    title = serializers.CharField(max_length=128)
+    description = serializers.CharField(max_length=200)
+    date = serializers.DateTimeField(format="%d-%m-%Y")
+    image = serializers.CharField(max_length=100)
+    active = serializers.BooleanField()

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'fdc_corp',
+    'django_mptt_admin',
 ]
 
 MIDDLEWARE = [
@@ -137,8 +138,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = "/news_images/"
-MEDIA_ROOT=os.path.join(BASE_DIR,"news_images/")
+MEDIA_URL = "/public/"
+MEDIA_ROOT=os.path.join(BASE_DIR,"public/")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

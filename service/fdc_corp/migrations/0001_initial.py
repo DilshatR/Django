@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('description', models.TextField()),
                 ('date', models.DateTimeField()),
-                ('image', models.ImageField(upload_to='news_images')),
+                ('image', models.ImageField(upload_to='public')),
                 ('active', models.BooleanField()),
                 ('lang_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='fdc_corp.languages')),
             ],

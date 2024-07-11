@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from fdc_corp.models import News, MainMenu, FooterMenu, Languages, Pages
-from fdc_corp.serializers import NewsSerializer, MainMenuSerializer, FooterMenuSerializer, LanguagesSerializer, PagesSerializer
+from fdc_corp.models import News, MainMenu, FooterMenu, Languages, Pages, Slider
+from fdc_corp.serializers import NewsSerializer, MainMenuSerializer, FooterMenuSerializer, LanguagesSerializer, PagesSerializer, SliderSerializer
 
 class news(APIView):
     def post(self, request):
@@ -23,6 +23,7 @@ class mainMenu(APIView):
             many=True
         )
         return Response(serializer_for_queryset.data)
+
 class footerMenu(APIView):
     def post(self, request):
         queryset = FooterMenu.objects.all()
@@ -50,5 +51,12 @@ class lang(APIView):
         )
         return Response(serializer_for_queryset.data)
 
-
-
+class slider(APIView):
+    def post(self, request):
+        lang_id = self.request.query_params.get('lang_id')
+        queryset = Slider.objects.filter(active=True, lang_id_id=lang_id)
+        serializer_for_queryset = SliderSerializer(
+            instance=queryset,
+            many=True
+        )
+        return Response(serializer_for_queryset.data)

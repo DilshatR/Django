@@ -19,7 +19,7 @@ class News(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField()
     date = models.DateTimeField()
-    image = models.ImageField(upload_to="news_images")
+    image = models.ImageField(upload_to="news")
     active = models.BooleanField()
 
     def __str__(self):
@@ -61,3 +61,19 @@ class FooterMenu(models.Model):
     url = models.CharField(max_length=256)
     position = models.IntegerField()
     active = models.BooleanField()
+
+
+class Slider(models.Model):
+    class Meta:
+        verbose_name = 'Slider'
+        verbose_name_plural = 'Slider'
+
+    lang_id = models.ForeignKey(to=Languages, on_delete=models.CASCADE)
+    title = models.CharField(max_length=128)
+    description = models.TextField()
+    date = models.DateTimeField()
+    image = models.ImageField(upload_to="slider")
+    active = models.BooleanField()
+
+    def __str__(self):
+        return f'{self.title} | {self.lang_id.title}'
